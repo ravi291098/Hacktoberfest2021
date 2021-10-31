@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+void swap(char*,char*);
+void permute(char *a, int beg, int end)
+{
+ 	int i;
+ 	if(beg==end)
+ 	printf("%s\n",a);
+ 	else
+	{ 
+ 		for(i=beg;i<=end;i++)
+ 		{
+   			swap((a+beg),(a+i));
+   			permute(a,beg+1,end);
+   			swap((a+beg),(a+i));
+  		}
+	}
+}
+
+int main()
+{ 
+ 	 char a[3]="abc";
+ 	 permute(a,0,2);
+  	 return 0;
+}
+void swap(char *p,char *q)
+{
+	char temp=*p;
+        *q=*p;
+        *p=temp;
+}
